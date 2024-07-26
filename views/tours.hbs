@@ -1,0 +1,80 @@
+{{!--
+/*
+    # Citation for the following function:
+    # Date: 8/12/2023
+    # Copied from and adapted from the node.js starter code:
+    # Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+*/
+--}}
+<main>
+    <h2>Tours</h2>
+<table id="tour-table">
+    <thead>
+        <tr>          
+            <th>Tour ID</th>
+            <th>Number of Tourists</th>
+            <th>Tour Date</th>
+            <th>Location Address</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr data-value={{this.idTour}}>
+            <td>{{this.idTour}}</td>
+            <td>{{this.numberOfTourist}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.address}}</td>
+            <td><button onclick="deleteTour({{this.idTour}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/deleteTour.js"></script>
+
+<h2>Adding a New Tour</h2>
+<p>To add a new tour, please fill out the information below and click 'Submit'!</p>
+<form id="add-tour-form-ajax">
+    <fieldset>
+    <label for="input-numberOfTourist">Number of Tourists:</label>
+    <input type="text" name="input-numberOfTourist" id="input-numberOfTourist">
+<br>
+    <label for="input-date">Date of Tour:</label>
+    <input type="date" name="input-date" id="input-date"></input>
+<br>
+    <label for="input-idLocation">Location Address</label>
+    <select name="input-idLocation" id="dropdownLocationAddressSelect">
+        <option>Select a Location</option>
+        {{#each locations}}
+        <option value="{{this.idLocation}}">{{this.address}}</option>
+        {{/each}}
+    </select>
+    <br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/addTour.js"></script> 
+
+<h2>Edit a Tour</h2>
+<p>To update a specific tour, select the tour ID from the drop-down menu and edit the information as needed!</p>
+<form id="update-tour-form-ajax">
+    <fieldset>
+    <label for="input-tour">Tour ID:</label>
+    <select name="input-tour" id="dropDownIDTourSelect-update" onchange="autoFillTour({{event}})">
+        <option>Select a Tour</option>
+        {{#each data}}
+        <option value="{{this.idTour}}">{{this.idTour}}</option>
+        {{/each}}
+    </select>
+<br>
+    <label for="input-tour-numTourist" id="input-tour-numTourist">Number of tourists:</label>
+    <input type="number" id="input-tour-numTourist-update" name="input-tour-numTourist-update">
+<br>
+    <label for="input-date">Date of Tour:</label>
+    <input type="date" name="input-date" id="input-date-update"></input>
+    <br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/updateTour.js"></script>
+</main>       

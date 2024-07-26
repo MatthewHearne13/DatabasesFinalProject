@@ -1,0 +1,84 @@
+{{!--
+/*
+    # Citation for the following function:
+    # Date: 8/12/2023
+    # Copied from and adapted from the node.js starter code:
+    # Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+*/
+--}}
+<main>
+<table id="tourists_have_Tours-table">
+    <h2>Tourist Assignments</h2>
+    <thead>
+        <tr>          
+            <th>Tourist Assignment ID</th>
+            <th>Tour ID</th>
+            <th>Tourist Name</th>
+            <th>Tour Date</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each touristAssignments}}
+        <tr data-value={{this.idTourists_have_Tours}}>
+            <td>{{this.idTourists_have_Tours}}</td>
+            <td>{{this.idTour}}</td>
+            <td>{{this.firstName}} {{this.middleName}} {{this.lastName}}</td>
+            <td>{{this.date}}</td>
+            <td><button onclick="deleteTourists_have_Tours({{this.idTourists_have_Tours}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/deleteTourists_have_Tours.js"></script>
+
+<h2>Assign a Tourist to a Tour</h2>
+<p>To add a new tourist assignment, please fill out the information below and click 'Submit'!</p>
+<form id="add-tourists_have_Tours-form-ajax">
+    <fieldset>
+    <label for="input-idTourist-fullName">Tourist:</label>
+    <select name="input-idTourist" id="dropdownidTouristSelect">
+        <option>Select a Tourist</option>
+        {{#each tourist}}
+        <option value="{{this.idTourist}}">{{this.firstName}} {{this.middleName}} {{this.lastName}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-tour">Tour ID:</label>
+    <select name="input-tour" id="dropDownIDTourSelect">
+        <option>Select a Tour</option>
+        {{#each tours}}
+        <option value="{{this.idTour}}">{{this.idTour}}</option>
+        {{/each}}
+    </select>
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/addTourists_have_Tours.js"></script>
+             
+<h2>Edit Tourist Assignment</h2>
+<p>To add a edit tourist assignment, please select the assignment ID below and edit as needed!</p>             
+<form id="update-tourists_have_Tours-form-ajax">
+    <fieldset>
+    <label for="input-tourists_have_Tours">Tourist Assignment ID:</label>
+    <select name="input-tour" id="dropDownIDTouristAssignmentSelect-update">
+        <option>Select a Tourist Assignment</option>
+        {{#each touristAssignments}}
+        <option value="{{this.idTourists_have_Tours}}">{{this.idTourists_have_Tours}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-idTourist-fullName">Tourist:</label>
+    <select name="input-idTourist-fullName" id="dropdownidTouristFullNameSelect-update">
+        <option>Select a Tourist</option>
+        {{#each tourist}}
+        <option value="{{this.idTourist}}">{{this.firstName}} {{this.middleName}} {{this.lastName}}</option>
+        {{/each}}
+    </select>
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/updateTourists_have_Tours.js"></script>
+</main>       

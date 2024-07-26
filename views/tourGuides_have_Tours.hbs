@@ -1,0 +1,85 @@
+{{!--
+/*
+    # Citation for the following function:
+    # Date: 8/12/2023
+    # Copied from and adapted from the node.js starter code:
+    # Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+*/
+--}}
+<main>
+<table id="tourGuides_have_Tours-table">
+    <h2>Tour Guide Assignments</h2>
+    <thead>
+        <tr>          
+            <th>Tour Guide Assignment ID</th>
+            <th>Tour ID</th>
+            <th>Tour Guide Name</th>
+            <th>Tour Date</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each tourGuideAssignments}}
+        <tr data-value={{this.idTourGuides_have_Tours}}>
+            <td>{{this.idTourGuides_have_Tours}}</td>
+            <td>{{this.idTour}}</td>
+            <td>{{this.firstName}} {{this.middleName}} {{this.lastName}}</td>
+            <td>{{this.date}}</td>
+            <td><button onclick="deleteTourGuides_have_Tours({{this.idTourGuides_have_Tours}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/deleteTourGuides_have_Tours.js"></script>
+
+<h2>Assign a Tour Guide to a Tour</h2>
+<p>To add a new tour guide assignment, please fill out the information below and click 'Submit'!</p>
+<form id="add-tourGuides_have_Tours-form-ajax">
+    <fieldset>
+    <label for="input-idTourGuide-fullName">Tour Guide:</label>
+    <select name="input-idTourGuide" id="dropdownidTourGuideSelect">
+        <option>Select a Tour Guide</option>
+        {{#each tourGuides}}
+        <option value="{{this.idTourGuide}}">{{this.firstName}} {{this.middleName}} {{this.lastName}}</option>
+        {{/each}}
+    </select>
+   
+    <label for="input-tour">Tour ID:</label>
+    <select name="input-tour" id="dropDownIDTourSelect">
+        <option>Select a Tour</option>
+        {{#each tours}}
+        <option value="{{this.idTour}}">{{this.idTour}}</option>
+        {{/each}}
+    </select>
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/addTourGuides_have_Tours.js"></script>
+
+
+<h2>Edit Tour Guide Assignment</h2>
+    <p>To edit a new tour guide assignment, please select the assignment ID below and edit as needed!</p>             
+<form id="update-tourGuides_have_Tours-form-ajax">
+    <fieldset>
+    <label for="input-tourGuides_have_Tours">Tour Guide Assignment ID:</label>
+    <select name="input-tour" id="dropDownIDTourGuideAssignmentSelect-update">
+        <option>Select a Tour Guide Assignment:</option>
+        {{#each tourGuideAssignments}}
+        <option value="{{this.idTourGuides_have_Tours}}">{{this.idTourGuides_have_Tours}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-idTourGuide-fullName">Tour Guide:</label>
+    <select name="input-idTourGuide-fullName" id="dropdownidTourGuideFullNameSelect-update">
+        <option>Select a Tour Guide</option>
+        {{#each tourGuides}}
+        <option value="{{this.idTourGuide}}">{{this.firstName}} {{this.middleName}} {{this.lastName}}</option>
+        {{/each}}
+    </select>
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/updateTourGuides_have_Tours.js"></script>
+</main>       

@@ -1,0 +1,310 @@
+/* 
+    # Citation for the following file:
+    # Date: 8/13/2023
+    # Copied from and adapted from CS290 starter CSS file:
+    # Source URL: None, gotten from previous OSU class
+*/
+
+/*   ----- Imports  -----  */
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital@0;1&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/*   ----- Variables  -----  */
+:root {
+  
+  --brown: #402E0D;
+  --sand: #D9C8A9;
+  --light-brown: #A68376;
+  --dark-brown: #260101;
+  --muddy-green: #647343;
+  --muddy-red: #730600;
+  --light-gray: #D9D9D9;
+  --light-goldenrod: #FAFAD2;
+  
+  
+}
+
+/*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+body {      
+  color:var(--brown);
+  font-family: 'Inria Serif', serif;
+  margin:0;
+  padding:10% 10% 10% 10%;
+  padding-top: 0%;
+  padding-bottom: 2%;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: var(--light-gray);
+  height: 100; 
+}
+
+/*  ----- Page layout blocks -----  */
+header {
+    font-family: 'Archivo', sans-serif;
+    color:var(--dark-brown);      
+    text-align: center;
+    background-color: var(--sand);
+    border: 2px solid var(--dark-brown);
+    margin: 1%;
+    padding: 1px;
+}
+main {
+    background-color: var(--sand);
+    padding: 1%;
+    color: var(--muddy-green);
+    border: 2px solid var(--dark-brown);
+    margin: 1%;
+}
+
+footer {
+    color: var(--sand);  
+    background-color: var(--light-brown);
+    margin: 1%;
+    padding: .05%;
+    border: 2px solid var(--dark-brown);
+}
+
+
+/*  ----- Navigation ----- Override text links for navigation only.  */
+nav {
+    text-align: center;
+
+}
+nav a {
+    background-color: var(--sand);
+    border: 2px solid var(--dark-brown);
+    border-radius: 5px;
+    text-decoration: none;
+    padding: .25em;
+    font-family: 'Archivo', sans-serif;
+    margin: 0%;
+    color: var(--light-brown);
+    
+}
+nav a:hover {
+    background-color: var(--brown);
+    color: var(--light-brown)
+}
+
+nav a:visited{
+    color: var(--muddy-red)
+}
+/*  -----  Typography  ----- */
+p {
+    font-weight: bold;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+h1 {
+    color: var(--brown);
+    font-family: 'Archivo', sans-serif;
+    
+}
+h2 {
+    color: var(--dark-brown);
+    font-family: 'Archivo', sans-serif;
+    text-align: center;
+    border-bottom: var(--dark-brown) solid 2px;
+    padding-bottom: .5em;
+    margin-bottom: .3em;
+    margin-top: .3em;
+
+}
+
+h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    color: var(--light-brown)
+} 
+
+/*  ----- Table ----- */
+table {
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 1px;
+  margin-left: .5em;
+  width: 99%;
+}
+caption {
+  background-color: var(--light-brown);
+  border-style: solid;
+  border-color: var(--dark-brown);
+  border-width: 2px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+tr th {
+  font-weight:bold;
+  background-color: var(--light-goldenrod);
+  text-align: left;
+  padding: 4px;
+  border-width: 3px;
+  border-color: var(--dark-brown);
+  margin: 1px;
+  color: var(--dark-brown)
+}
+
+tr td {
+  text-align:left;
+  background-color: var(--light-gray);
+  padding: 4px;
+  margin: 2px;
+  color: var(--dark-brown)
+}
+  
+th {
+  border-width: 1px;
+  border-style:solid;
+  border-color: var(--dark-brown);
+}
+td {
+  border-color:var(--brown);
+  border-style: solid;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+td button:hover {
+    background-color: var(--light-brown);
+    color:var(--dark-brown);
+    border-color: var(--dark-brown);
+    cursor:pointer;
+}
+
+
+/*  ----- Form ----- */
+form {
+  color: var(--dark-brown);
+}
+
+fieldset {
+  border:solid var(--dark-brown);
+  margin: .5em; 
+  padding: 5px;  
+  background-color: var(--light-gray);
+  color: var(--brown);
+  display:inline-block;
+  width: 97%;
+  margin-left: .5em;
+  margin-right: .5em;
+  
+}
+  legend {
+    border: 2px solid var(--light-blue);
+    color: var(--brown);
+    margin: 5px;
+    background-color: var(--light-gray);
+    padding: .5em;
+  }
+label {
+    display:inline-block;
+    padding: 5px;
+    text-align: left;
+
+}
+
+input.submitFormButton {
+    color: var(--light-brown);
+    border-radius: 5px;
+    border: 2px solid var(--light-brown);
+    background-color: var(--dark-brown);
+    margin: 5px;
+    padding: 5px;
+}
+
+input.submitFormButton:hover {
+    background-color: var(--light-brown);
+    color:var(--dark-brown);
+    border-color: var(--dark-brown);
+    cursor:pointer;
+}
+
+  button {
+    color: var(--light-brown);
+    border-radius: 5px;
+    border: 2px solid var(--light-brown);
+    background-color: var(--dark-brown);
+    margin: 5px;
+    padding: 5px;
+  }
+  .button:hover{
+    background-color: var(--light-brown);
+    color:var(--dark-brown);
+    border-color: var(--dark-brown);
+    cursor:pointer;
+  }
+  input {
+    display:inline-block;
+    margin-left: .5em;
+    padding: 5px;
+    border:groove;
+    color: var(--dark-brown)
+  }
+  .radio-buttons{
+    margin-left: .5em;
+    margin-top: 5px;
+  }
+
+  progress {
+    margin-left: .5em;
+  }
+  select {
+    margin-left: .5em;
+  }
+
+  textarea {
+    margin-left: .5em;
+    background-color: var(--light-brown);
+    padding: 10px;
+    border: groove;
+    border-radius: 10px;
+  }
+  :focus{
+    background-color: var(--light-goldenrod);
+  }
+  ::placeholder{
+    color: var(--light-salmon)
+  }
+  :required{
+    border: 2px solid var(--muddy-red)
+  }
+
+label.required::after{
+    content:" *";
+    color:var(--muddy-red);
+}
+
+
+/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+.gallery {
+    display: grid;
+    grid-template-columns: 2fr;   
+} 
+
+.add-button {
+  margin-bottom: 10px;
+}
+
+@keyframes App-logo {}
+
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
+
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {
+    .gallery{
+        grid-template-columns: 1fr 1fr; /* 3 columns on desktop-sized browsers */
+    }
+}
+
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}

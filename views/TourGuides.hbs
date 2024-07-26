@@ -1,0 +1,126 @@
+
+    {{!-- # Citation for the following function:
+    # Date: 8/12/2023
+    # Copied from and adapted from the node.js starter code:
+    # Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app --}}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="./js/deleteTourGuides.js"></script>
+<body>
+    <main>
+        <h2>Tour Guides</h2>
+        {{!-- Create a table --}}
+<table id="tourGuide-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            <th>Tour Guide ID</th>
+            <th>Base Location</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Years as a Guide</th>
+            <th>Hourly Rate</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.idTourGuide}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.firstName}}</td>
+            <td>{{this.middleName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.yearsAsGuide}}</td>
+            <td>${{this.hourlyRate}}</td>
+            <td><button onclick="deleteTourGuide({{this.idTourGuide}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Adding a new Tour Guide</h2>
+<p>To add a new tour guide, please fill out the information below and click 'Submit'!</p>
+<form id="add-tourGuide-form">
+    <fieldset>
+
+    <label for="input-baseLocation">Base Location:</label>
+    <select name="input-baseLocation" id="dropdownbaseLocationSelect">
+        <option value="">Select a Base Location</option>
+        {{#each locations}}
+        <option value="{{this.idLocation}}">{{this.address}}</option>
+        {{/each}}
+    </select>
+<br>
+    <label for="input-firstName">First Name:</label>
+    <input type="text" name="input-firstName" id="input-firstName"></input>
+
+    <label for="input-middleName">Middle Name:</label>
+    <input type="text" name="input-middleName" id="input-middleName">
+
+    <label for="input-lastName">Last Name:</label>
+    <input type="text" name="input-lastName" id="input-lastName">
+<br>
+    <label for="input-yearsAsGuide">Years as a tour guide:</label>
+    <input type="number" name="input-yearsAsGuide" id="input-yearsAsGuide"></input>
+
+    <label for="input-hourlyRate">Hourly Rate:</label>
+    <input type="number" name="input-hourlyRate" id="input-hourlyRate">
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="./js/addTourGuide.js"></script>
+
+
+<h2>Edit a Tour Guide</h2>
+<p>To edit tour guide, please select their name from the dropdown and update the information as needed!</p>
+<form id="update-tourGuide-form-ajax">
+    <fieldset>
+    <label for="input-tourGuide-update">Tour Guide ID:</label>
+    <select name="input-tourGuide-update" id="dropdownTourGuideSelect-update">
+        <option>Select a Tour Guide</option>
+        {{#each data}}
+        <option value="{{this.idTourGuide}}">{{this.firstName}} {{this.middleName}} {{this.lastName}}</option>
+        {{/each}}
+    </select>
+<br>
+    <label for="input-tourGuide-baseLocation">Enter a new base location:</label>
+    <select name="input-baseLocation" id="dropdownbaseLocationSelect-update">
+        <option>Select a Base Location</option>
+        {{#each locations}}
+        <option value="{{this.idLocation}}">{{this.address}}</option>
+        {{/each}}
+    </select>
+<br>
+     <label for="input-tourGuide-firstName">Edit first name:</label>
+    <input type="text" id="input-tourGuide-firstName" name="input-tourGuide-firstName-update">
+<br>
+    <label for="input-tourGuide-middleName">Edit middle name:</label>
+    <input type="text" id="input-tourGuide-middleName" name="input-tourGuide-middleName-update">
+<br>
+    <label for="input-tourGuide-lastName">Edit last name:</label>
+    <input type="text" id="input-tourGuide-lastName" name="input-tourGuide-lastName-update">
+<br>
+    <label for="input-tourGuide-yearsAsGuide">Years as Guide:</label>
+    <input type="number" id="input-tourGuide-yearsAsGuide" name="input-tourGuide-yearsAsGuide-update">
+
+    <label for="input-tourGuide-hourlyRate">Hourly Rate:</label>
+    <input type="number" id="input-tourGuide-hourlyRate" name="input-tourGuide-hourlyRate-update">
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/updateTourGuide.js"></script>
+     
+</main>            

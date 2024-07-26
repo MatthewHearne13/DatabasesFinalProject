@@ -1,0 +1,4 @@
+Date: 8/14/2023
+All of the files in this project have been adapted from the CS 340 starter code for NodeJS with the exception of the style.CSS file which was adapted from the starter code given to use in CS 290: Web Development. In addition to the CSS file, within the app.js file, code was adapted from an edDiscussion regarding formatting date values in tables. 
+Source URL for NodeJS starter code: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+Source URL for Date formatting: https://edstem.org/us/courses/40261/discussion/3318397

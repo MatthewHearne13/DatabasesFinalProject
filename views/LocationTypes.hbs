@@ -1,0 +1,79 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="./js/deleteLocationType.js"></script>
+<body>
+    <main>
+        {{!-- Create a table --}}
+        <h2>Location Types</h2>
+<table id="locationType-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            <th>Location Type ID</th>
+            <th>Location Type</th>
+            <th>Description</th>
+            <th>Delete</th>       
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr data-value={{this.idLocationType}}>
+            <td>{{this.idLocationType}}</td>
+            <td>{{this.locationType}}</td>
+            <td>{{this.description}}</td>
+            <td><button onclick="deleteLocationType({{this.idLocationType}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Adding a new Location Type</h2>
+<p>To add a new location type, please fill out the information below and click 'Submit'!</p>
+<form id="add-locationType-form">
+    <fieldset>
+    <label for="input-locationType">Location Type:</label>
+    <input type="text" name="input-locationType" id="input-locationType">
+
+
+    <label for="input-description">Description:</label>
+    <input type="text" name="input-description" id="input-description"></input>
+<br>
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="./js/addLocationType.js"></script>
+
+<h2>Edit a Location Type</h2>
+<p>To edit location type, please select the Location Type ID and update the information as needed!</p>             
+<form id="update-locationType-form-ajax">
+    <fieldset>
+    <label for="input-LocationType">Location Type ID:</label>
+    <select name="input-LocationType" id="dropdownLocationTypeSelect-update">
+        <option>Select a Location Type</option>
+        {{#each data}}
+        <option value="{{this.idLocationType}}">{{this.idLocationType}}</option>
+        {{/each}}
+    </select>
+<br>
+    <label for="input-locationType">Location Type:</label>
+    <input type="text" id="input-locationType-update" name="input-locationType-update">
+
+    <label for="input-locationType-description">Description:</label>
+    <input type="text" id="input-locationType-description-update" name="input-locationType-description-update">
+<br>   
+    <input type="submit" class="submitFormButton">
+    </fieldset>
+</form>
+<script src="./js/updateLocationType.js"></script>
+    </main>            
+
